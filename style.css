@@ -11,15 +11,12 @@ body {
     position: relative;
 }
 
-/* Background Layer (Mobile Friendly JPEG) */
+/* Background JPEG */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     background: url("background.jpg") center/cover no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     filter: brightness(0.7);
     z-index: -1;
 }
@@ -86,7 +83,46 @@ body::before {
 
 #bouquet:target {
     opacity: 1;
-    max-height: 600px;
+    max-height: 500px;
+}
+
+/* ========== Dot Bouquet ========== */
+.dot-bouquet {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Each flower */
+.dot-flower {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    animation: pop 0.6s ease forwards;
+}
+
+/* Petal dots */
+.dot-flower span {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #ff8fab;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #ffb3c6;
+}
+
+/* Position petals in circle */
+.dot-flower span:nth-child(1) { top: 0; left: 11px; }
+.dot-flower span:nth-child(2) { top: 11px; left: 22px; }
+.dot-flower span:nth-child(3) { top: 22px; left: 11px; }
+.dot-flower span:nth-child(4) { top: 11px; left: 0; }
+
+/* Center dot */
+.dot-flower span:nth-child(5) {
+    top: 11px;
+    left: 11px;
+    background: #fff;
 }
 
 /* ========== Hidden Message ========== */
@@ -100,53 +136,7 @@ body::before {
     opacity: 0.8;
 }
 
-/* ========== Floating Petals ========== */
-.petals span {
-    position: absolute;
-    font-size: 2em;
-    animation: fall linear infinite;
-}
-
-.petals span:nth-child(1) { left: 10%; animation-duration: 8s; }
-.petals span:nth-child(2) { left: 30%; animation-duration: 10s; }
-.petals span:nth-child(3) { left: 50%; animation-duration: 12s; }
-.petals span:nth-child(4) { left: 70%; animation-duration: 9s; }
-.petals span:nth-child(5) { left: 90%; animation-duration: 11s; }
-
-/* ========== Bouquet (Coded Flowers) ========== */
-.flower-bouquet {
-    display: inline-block;
-    margin: 10px;
-    position: relative;
-    width: 20px;
-    height: 60px;
-    animation: grow 1s ease forwards;
-}
-
-.flower-bouquet .stem {
-    width: 4px;
-    height: 60px;
-    background: #2c6f4f;
-    margin: 0 auto;
-    border-radius: 2px;
-}
-
-.flower-bouquet .petals {
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle at center, #ff5c8d 0%, #ffb6c1 80%);
-    border-radius: 50%;
-    position: absolute;
-    top: -10px;
-    left: 0;
-}
-
 /* ========== Animations ========== */
-@keyframes fall {
-    0% { top: -10%; transform: rotate(0deg); }
-    100% { top: 110%; transform: rotate(360deg); }
-}
-
 @keyframes glow {
     from { text-shadow: 0 0 10px white; }
     to { text-shadow: 0 0 25px white; }
@@ -157,7 +147,7 @@ body::before {
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes grow {
-    0% { transform: scaleY(0); opacity: 0; }
-    100% { transform: scaleY(1); opacity: 1; }
+@keyframes pop {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
