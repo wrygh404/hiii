@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <title>For Collyn 🌸</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for fancy text -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Floating Flowers -->
+    <!-- Floating background petals -->
     <div class="petals">
         <span>🌸</span>
         <span>🌷</span>
@@ -17,7 +19,7 @@
     </div>
 
     <div class="card">
-        <h1>Collyn 💗</h1>
+        <h1 class="fancy-name">Collyn 💗</h1>
         <p class="subtitle">Happy Valentine’s Day</p>
 
         <p class="quote">
@@ -25,14 +27,31 @@
             You? You’re the whole garden.
         </p>
 
-        <a href="#message" class="btn">Open Your Flowers 🌷</a>
+        <!-- Button triggers the bouquet -->
+        <a href="#bouquet" class="btn">Open Your Flowers 🌷</a>
 
-        <div id="message" class="hidden-message">
-            <p>
-                If I could code one perfect thing this year,  
-                it would be a moment with you. 🌸
-            </p>
-            <p class="signature">— Louise</p>
+        <div id="bouquet" class="hidden-bouquet">
+            <!-- Coded bouquet petals -->
+            <div class="flower-bouquet">
+                <div class="stem"></div>
+                <div class="petals"></div>
+            </div>
+            <div class="flower-bouquet">
+                <div class="stem"></div>
+                <div class="petals"></div>
+            </div>
+            <div class="flower-bouquet">
+                <div class="stem"></div>
+                <div class="petals"></div>
+            </div>
+
+            <div class="hidden-message">
+                <p>
+                    If I could code one perfect thing this year,  
+                    it would be a moment with you. 🌸
+                </p>
+                <p class="signature">— Louise</p>
+            </div>
         </div>
     </div>
 
