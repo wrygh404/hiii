@@ -1,8 +1,9 @@
+/* Base */
 body {
     margin: 0;
     height: 100vh;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,14 +18,15 @@ body {
     border-radius: 20px;
     backdrop-filter: blur(10px);
     text-align: center;
-    width: 320px;
+    width: 350px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     animation: fadeIn 2s ease-in-out;
 }
 
-/* Glowing Name */
-h1 {
-    font-size: 2.8em;
+/* Fancy name */
+.fancy-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
     margin: 0;
     animation: glow 2s infinite alternate;
 }
@@ -57,8 +59,8 @@ h1 {
     background: #ffe6ec;
 }
 
-/* Hidden message */
-.hidden-message {
+/* Hidden bouquet */
+.hidden-bouquet {
     margin-top: 20px;
     opacity: 0;
     max-height: 0;
@@ -66,11 +68,17 @@ h1 {
     transition: all 1s ease;
 }
 
-#message:target {
+#bouquet:target {
     opacity: 1;
-    max-height: 200px;
+    max-height: 600px;
 }
 
+/* Hidden message */
+.hidden-message {
+    margin-top: 20px;
+}
+
+/* Signature */
 .signature {
     margin-top: 10px;
     font-style: italic;
@@ -84,36 +92,16 @@ h1 {
     animation: fall linear infinite;
 }
 
-.petals span:nth-child(1) {
-    left: 10%;
-    animation-duration: 8s;
-}
-.petals span:nth-child(2) {
-    left: 30%;
-    animation-duration: 10s;
-}
-.petals span:nth-child(3) {
-    left: 50%;
-    animation-duration: 12s;
-}
-.petals span:nth-child(4) {
-    left: 70%;
-    animation-duration: 9s;
-}
-.petals span:nth-child(5) {
-    left: 90%;
-    animation-duration: 11s;
-}
+.petals span:nth-child(1) { left: 10%; animation-duration: 8s; }
+.petals span:nth-child(2) { left: 30%; animation-duration: 10s; }
+.petals span:nth-child(3) { left: 50%; animation-duration: 12s; }
+.petals span:nth-child(4) { left: 70%; animation-duration: 9s; }
+.petals span:nth-child(5) { left: 90%; animation-duration: 11s; }
 
+/* Keyframes for animations */
 @keyframes fall {
-    0% {
-        top: -10%;
-        transform: rotate(0deg);
-    }
-    100% {
-        top: 110%;
-        transform: rotate(360deg);
-    }
+    0% { top: -10%; transform: rotate(0deg); }
+    100% { top: 110%; transform: rotate(360deg); }
 }
 
 @keyframes glow {
@@ -124,4 +112,38 @@ h1 {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🌷 Coded Bouquet */
+.flower-bouquet {
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+    width: 20px;
+    height: 60px;
+    animation: grow 1s ease forwards;
+}
+
+.flower-bouquet .stem {
+    width: 4px;
+    height: 60px;
+    background: #2c6f4f;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+.flower-bouquet .petals {
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle at center, #ff5c8d 0%, #ffb6c1 80%);
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: 0;
+}
+
+/* Grow animation */
+@keyframes grow {
+    0% { transform: scaleY(0); opacity: 0; }
+    100% { transform: scaleY(1); opacity: 1; }
 }
