@@ -2,17 +2,160 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For Collyn 💗</title>
-
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to bottom, #1a1a2e, #16213e, #0f3460);
+            color: white;
+            overflow: hidden;
+        }
+
+        /* 🌸 Floating Petals */
+        .petals {
+            position: fixed;
+            top: -10%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .petals span {
+            position: absolute;
+            font-size: 24px;
+            animation: fall linear infinite;
+        }
+
+        .petals span:nth-child(1) {
+            left: 10%;
+            animation-duration: 8s;
+        }
+
+        .petals span:nth-child(2) {
+            left: 30%;
+            animation-duration: 10s;
+        }
+
+        .petals span:nth-child(3) {
+            left: 50%;
+            animation-duration: 12s;
+        }
+
+        .petals span:nth-child(4) {
+            left: 70%;
+            animation-duration: 9s;
+        }
+
+        .petals span:nth-child(5) {
+            left: 85%;
+            animation-duration: 11s;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .card {
+            position: relative;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            max-width: 400px;
+        }
+
+        .fancy-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .quote {
+            font-size: 1rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #ff4da6;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #ff1a8c;
+            transform: scale(1.05);
+        }
+
+        /* Hidden toggle */
+        #toggle {
+            display: none;
+        }
+
+        .hidden-bouquet {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.8s ease;
+        }
+
+        #toggle:checked ~ .hidden-bouquet {
+            max-height: 300px;
+            margin-top: 20px;
+        }
+
+        .hidden-message {
+            padding-top: 15px;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .signature {
+            margin-top: 10px;
+            font-style: italic;
+            opacity: 0.8;
+        }
+    </style>
 </head>
+
 <body>
 
-    <!-- Floating petals -->
+    <!-- 🌸 Floating Flowers -->
     <div class="petals">
         <span>🌸</span>
         <span>🌷</span>
@@ -26,18 +169,17 @@
         <p class="subtitle">Happy Valentine’s Day</p>
 
         <p class="quote">
-            Some people are flowers.  
+            Some people are flowers.<br>
             You? You’re the whole garden.
         </p>
 
-        <!-- Button triggers the hidden message -->
-        <a href="#bouquet" class="btn">Open Your Surprise ✨</a>
+        <input type="checkbox" id="toggle">
+        <label for="toggle" class="btn">Open Your Surprise ✨</label>
 
-        <!-- Hidden message -->
-        <div id="bouquet" class="hidden-bouquet">
+        <div class="hidden-bouquet">
             <div class="hidden-message">
                 <p>
-                    If I could code one perfect thing this year,  
+                    If I could code one perfect thing this year,<br>
                     it would be a moment with you. 🌸
                 </p>
                 <p class="signature">— Louise</p>
